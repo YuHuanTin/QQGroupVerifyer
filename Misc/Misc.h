@@ -7,12 +7,13 @@
 #include <vector>
 #include <string_view>
 #include <nlohmann/json.hpp>
-#include "../ExceptionHandler/ExceptionHandler.h"
+#include <expected>
+
 
 namespace Misc {
     uint32_t getBknBySkey(std::string_view Skey);
 
-    std::vector<uint64_t> jsonUinParser(std::string_view JsonString, std::shared_ptr<ExceptionHandler> &ExceptionHandler);
+    std::expected<std::vector<uint64_t>, std::string> jsonUinParser(std::string_view JsonString);
 
 }
 
